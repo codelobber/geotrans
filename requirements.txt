@@ -1,0 +1,11 @@
+# [Optional but suggested] Create a virtualenv to isolate our package dependencies locally
+# virtualenv env
+# source env/bin/activate
+
+# Install required packages
+Flask
+Flask-GraphQL
+graphene-mongo
+
+# Install mongomock or you have to run a real mongo server instance somewhere.
+mongomock
