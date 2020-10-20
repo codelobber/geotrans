@@ -23,13 +23,11 @@ class Add(graphene.Mutation):
         due = graphene.DateTime()
 
     success = graphene.Boolean()
-    result = graphene.Field(lambda: Point)
-
+    
     def mutate(root, info, name, latitude, longitud, phone, due):
-        result = PointModel(name = name, latitude = latitude, longitud = longitud, phone = phone, due = due)
-        result.save()
+        PointModel.objects(phone=phone).update(set__name = name, set__latitude = latitude, set__longitud = longitud, set__due = due, upsert=True)
         success = True
-        return Add(result=result, success=success)
+        return Add(success=success)
 
 class Mutations(graphene.ObjectType):
     add = Add.Field()
