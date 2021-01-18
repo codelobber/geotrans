@@ -1,7 +1,7 @@
 from datetime import datetime
 from mongoengine import Document
 from mongoengine.fields import (
-    DateTimeField, ReferenceField, StringField,
+    DateTimeField, ReferenceField, StringField, BooleanField, IntField,
 )
 
 class Point(Document):
@@ -11,3 +11,9 @@ class Point(Document):
     longitud = StringField()
     phone = StringField()
     due = DateTimeField(default=datetime.now)
+
+class Config(Document):
+    meta = {'collection': 'config'}
+    version = IntField()
+    allowedRadius = IntField()
+    isDayPeriodAllowed = BooleanField()

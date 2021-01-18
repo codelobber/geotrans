@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export FLASK_ENV=production
-python3 app.py shell
+python3 scripts/app.py shell
