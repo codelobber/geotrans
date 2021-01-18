@@ -49,8 +49,8 @@ class Configurator(graphene.Mutation):
 
     success = graphene.Boolean()
     
-    def mutate(root, info, name, latitude, longitud, phone, due):
-        ConfigModel.objects.objects(version=version).update(set__isDayPeriodAllowed = isDayPeriodAllowed, set__allowedRadius = allowedRadius, upsert=True)
+    def mutate(root, info, version, isDayPeriodAllowed, allowedRadius):
+        ConfigModel.objects(version=version).update(set__isDayPeriodAllowed = isDayPeriodAllowed, set__allowedRadius = allowedRadius, upsert=True)
         success = True
         return Add(success=success)
 

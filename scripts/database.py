@@ -12,14 +12,5 @@ def init_db():
     point = Point(name = 'John Smith', latitude = '0', longitud = '0.1', phone = '+79000000000')
     point.save()
 
-    point2 = Point(name = 'Anna Mark', latitude = '0', longitud = '0.1', phone = '+79000000000')
-    point2.save()
-
-    point3 = Point(name = 'Sammy Siin', latitude = '0', longitud = '0.1', phone = '+79000000000')
-    point3.save()
-
-    point4 = Point(name = 'Nicolas', latitude = '0', longitud = '0.1', phone = '+79000000000')
-    point4.save()
-
     config = Config(version = 1, allowedRadius = 1000, isDayPeriodAllowed = True)
     config.save()

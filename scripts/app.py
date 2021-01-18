@@ -24,10 +24,25 @@ default_query = '''
 
 add_query = '''
 mutation myFirstMutation {
-    add(name:"Peter", latitude: "0", longitud: "0", phone: "0", due: "2020-09-25T18:37:44.586000" ) {
-        result {
-            name
-        }
+    add(name:"Тестовский Янович", latitude: "55.69343638", longitud: "37.60618714", phone: "79857273129", due: "2020-11-25T18:37:44.586000" ) {
+        success
+    }
+}
+'''.strip()
+
+config_query = '''
+{
+  config(version: 1) {
+        allowedRadius,
+        isDayPeriodAllowed
+  }
+}
+'''.strip()
+
+set_config_query = '''
+mutation myFirstMutation {
+    config(version: 1, isDayPeriodAllowed: true, allowedRadius: 100) {
+        success
     }
 }
 '''.strip()
